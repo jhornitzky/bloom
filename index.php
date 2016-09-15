@@ -76,6 +76,36 @@
 			}
 			@keyframes cloud { 0% { left: -20%; } 100% { left: 120%; } }
 
+
+			/*
+			Read
+			http://www.useragentman.com/blog/2013/03/03/animating-circular-paths-using-css3-transitions/
+			and
+			https://subvisual.co/blog/posts/62-perfecting-a-css-3d-animation
+			*/
+			.bloom-orbit {
+				position:relative;
+				overflow: hidden;
+				min-height:200px;
+			}
+			.bloom-orbit .orbiter {
+				position:absolute;
+				width:30px;
+				height:30px;
+				border-radius:10px;
+				left: 80px;
+				top:80px;
+				background-color:red;
+				border:1px solid #FFF;
+				animation: orbit 4s linear infinite; /* Chrome, Firefox 16+,
+                                                      IE 10+, Safari 5 */
+			}
+			@keyframes orbit {
+			    from { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+			    to   { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+			}
+
+
         </style>
 
 		<script>
@@ -115,6 +145,14 @@
         		<div class="bloom-cloud">
 					<div class="cloud-one"></div>
 					<div class="cloud-two"></div>
+				</div>
+			  </div>
+		  </div>
+		  <div class="row section">
+			  <div class="col-md-6">
+			  	<h3>.bloom-orbit</h3>
+        		<div class="bloom-orbit">
+					<div class="orbiter"></div>
 				</div>
 			  </div>
 		  </div>

@@ -117,13 +117,6 @@
 					<div class="cloud-two"></div>
 				</div>
 			  </div>
-			  <div class="col-md-6">
-			  	<h3>.bloom-cloud</h3>
-        		<div class="bloom-cloud">
-					<div class="cloud-one"></div>
-					<div class="cloud-two"></div>
-				</div>
-			  </div>
 		  </div>
       </div>
     </div>

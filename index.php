@@ -105,15 +105,22 @@
 			    to   { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
 			}
 
-
+			.bloom-bg {
+				background-color:purple;
+				min-height:200px;
+				position:relative;
+			}
+			.bloom-bg .screen {
+				background-color:rgba(0,0,0,0.5);
+				min-height:200px;
+				position:absolute;
+				width:50%;
+				height:50%;
+				left:50%;
+				top:0;
+			}
 
         </style>
-
-		<script>
-		  $(document).ready(function(){
-
-		  });
-		</script>
 
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
@@ -157,6 +164,12 @@
 					<div class="orbiter"></div>
 				</div>
 			  </div>
+			  <div class="col-md-6">
+			  	<h3>.bloom-bg</h3>
+        		<div class="bloom-bg">
+					<div class="screen"></div>
+				</div>
+			  </div>
 		  </div>
       </div>
     </div>
@@ -172,5 +185,15 @@
         <script src="js/vendor/jquery.transit.min.js"></script>
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
+
+		<script>
+		  $(document).ready(function(){
+			  $('.bloom-bg').mouseover(function() {
+				  $(this).find('.screen').transition({x:'20%'});
+			  }).mouseleave(function() {
+				  $(this).find('.screen').transition({x:'-20%'});
+			  });
+		  });
+		</script>
     </body>
 </html>

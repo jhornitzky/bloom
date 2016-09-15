@@ -106,6 +106,7 @@
 			}
 
 
+
         </style>
 
 		<script>
@@ -129,7 +130,8 @@
       <div class="container">
 		  <div class="row section">
         	<h1>Bloom </h1>
-        	<p><span>v0.1</span> Simple js/css for bringing pages to life.</p>
+        	<p><span style="text-decoration:underline">v0.1</span> <br>
+				Simple js/css for bringing pages to life.</p>
 		</div>
 		  <div class="row section">
 			  <div class="col-md-6">

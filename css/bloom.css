@@ -273,6 +273,7 @@ https://subvisual.co/blog/posts/62-perfecting-a-css-3d-animation
 	background-color:orange;
 	border:1px solid #FFF;
 	box-shadow:0 0 5px #000;
+	transform-origin: 0 35px;
 }
 .bloom-play .bloom-wind .blowing {
 	animation: blowing 2s linear infinite;

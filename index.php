@@ -26,7 +26,7 @@
         	<h1>Bloom</h1>
         	<p><span style="text-decoration:underline">v0.1</span> <br>
 				Simple css for bringing pages to life.</p>
-			<a href="#" class="" onclick="togglePlay()">Toggle .play animations</a>
+			<a href="#" class="" onclick="togglePlay()">Toggle .bloom-play animations</a>
 			<br><br><br>
 		</div>
 		  <div class="row section">

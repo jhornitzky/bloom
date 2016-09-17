@@ -11,134 +11,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
-			.section {
-				padding-top:25px;
-				padding-bottom:25px;
-				margin-top:25px;
-			}
-
-			.bloom-two-wheels {
-				position:relative;
-			}
-			.bloom-two-wheels > * {
-				background-color:blue;
-				border:1px solid #FFF;
-				border-radius:5px;
-			}
-			.bloom-two-wheels .frame {
-				position:absolute;
-				top:0;
-				left:10px;
-				width:40px;
-				height:40px;
-			}
-			.bloom-two-wheels .wheel-one {
-				position:absolute;
-				top:30px;
-				left:0;
-				width:20px;
-				height:20px;
-				animation:spin 4s linear infinite;
-			}
-			.bloom-two-wheels .wheel-two {
-				position:absolute;
-				top:30px;
-				left:40px;
-				width:20px;
-				height:20px;
-				animation:spin 4s linear infinite;
-			}
-			@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-			.bloom-cloud {
-				position:relative;
-				overflow: hidden;
-				min-height:50px;
-			}
-			.bloom-cloud > * {
-				background-color:green;
-				border:1px solid #FFF;
-				border-radius:5px;
-			}
-			.bloom-cloud .cloud-one {
-				position: absolute;
-				width:20%;
-				height:20px;
-				animation:cloud 4s linear infinite;
-			}
-			.bloom-cloud .cloud-two {
-				position: absolute;
-				width:20%;
-				height:20px;
-				top:20px;
-				animation:cloud 10s linear infinite;
-			}
-			@keyframes cloud { 0% { left: -20%; } 100% { left: 120%; } }
-
-
-			/*
-			Read
-			http://www.useragentman.com/blog/2013/03/03/animating-circular-paths-using-css3-transitions/
-			and
-			https://subvisual.co/blog/posts/62-perfecting-a-css-3d-animation
-			*/
-			.bloom-orbit {
-				position:relative;
-				overflow: hidden;
-				min-height:200px;
-			}
-			.bloom-orbit .orbiter {
-				position:absolute;
-				width:30px;
-				height:30px;
-				border-radius:10px;
-				left: 80px;
-				top:80px;
-				background-color:red;
-				border:1px solid #FFF;
-				animation: orbit 4s linear infinite; /* Chrome, Firefox 16+,
-                                                      IE 10+, Safari 5 */
-			}
-			@keyframes orbit {
-			    from { transform: rotate(0deg) translateX(50px) rotate(0deg); }
-			    to   { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
-			}
-
-			.bloom-bg {
-				background-color:purple;
-				min-height:200px;
-				position:relative;
-			}
-			.bloom-bg .screen {
-				background-color:rgba(0,0,0,0.5);
-				min-height:200px;
-				position:absolute;
-				width:50%;
-				height:50%;
-				left:50%;
-				top:0;
-			}
-
-        </style>
-
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
-
+        <link rel="stylesheet" href="css/bloom.css">
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
-    <body>
+    <body class="bloom-play">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
 		  <div class="row section">
-        	<h1>Bloom </h1>
+        	<h1>Bloom</h1>
         	<p><span style="text-decoration:underline">v0.1</span> <br>
-				Simple js/css for bringing pages to life.</p>
+				Simple css for bringing pages to life.</p>
+			<a href="#" class="" onclick="togglePlay()">Toggle .play animations</a>
+			<br><br><br>
 		</div>
 		  <div class="row section">
 			  <div class="col-md-6">
@@ -171,6 +60,39 @@
 				</div>
 			  </div>
 		  </div>
+		  <div class="row section">
+			  <div class="col-md-6">
+			  	<h3>.bloom-float</h3>
+        		<div class="bloom-float">
+					<div class="floater"></div>
+				</div>
+			  </div>
+			  <div class="col-md-6">
+			  	<h3>.bloom-stack</h3>
+        		<div class="bloom-stack">
+					<div class="stack-one"></div>
+					<div class="stack-two"></div>
+					<div class="stack-three"></div>
+					<div class="stack-four"></div>
+				</div>
+			  </div>
+		  </div>
+		  <div class="row section">
+			  <div class="col-md-6">
+			  	<h3>.bloom-flytrap</h3>
+        		<div class="bloom-flytrap">
+					<div class="fly"></div>
+					<div class="trap-top"></div>
+					<div class="trap-bottom"></div>
+				</div>
+			  </div>
+			  <div class="col-md-6">
+			  	<h3>.bloom-wind</h3>
+        		<div class="bloom-wind">
+					<div class="blowing"></div>
+				</div>
+			  </div>
+		  </div>
       </div>
     </div>
 
@@ -185,15 +107,10 @@
         <script src="js/vendor/jquery.transit.min.js"></script>
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
-
 		<script>
-		  $(document).ready(function(){
-			  $('.bloom-bg').mouseover(function() {
-				  $(this).find('.screen').transition({x:'20%'});
-			  }).mouseleave(function() {
-				  $(this).find('.screen').transition({x:'-20%'});
-			  });
-		  });
+		  function togglePlay() {
+			  $('body').toggleClass('bloom-play');
+		  }
 		</script>
     </body>
 </html>
